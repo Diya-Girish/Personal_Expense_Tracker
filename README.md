@@ -2,7 +2,6 @@
 personal expense tracker using flask
 Personal Expense Tracker
 
-youtube video demo link https://youtu.be/61TvtkJZBZc
 
 ![119551494-55bc4a00-bdb7-11eb-933a-f85b4936ce58](https://github.com/user-attachments/assets/4991cd08-8102-4d3e-b0df-058d9b50aee5)
 ![119551692-8a300600-bdb7-11eb-91ad-2b8a62e73945](https://github.com/user-attachments/assets/837c707c-13a5-4463-9c42-1ce24e86487d)
