@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block body %} 
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Edit Expense</h3>
+            <form action="/update/{{expenses[0]}}" method="POST">
+
+    <!-- DATE -->
+    <div class="form-group">
+        <label>Date</label>
+        <input class="form-control" type="datetime-local" name="date" id="date">
+    </div>
+
+    <script>
+        var d = new Date("{{expenses[2]}}");
+        document.getElementById("date").value = d.toISOString().slice(0,16);
+    </script>
+
+    <!-- NAME -->
+    <div class="form-group">
+        <label>Expense name</label>
+        <input class="form-control" type="text" name="expensename" value="{{expenses[3]}}">
+    </div>
+
+    <!-- AMOUNT -->
+    <div class="form-group">
+        <label>Amount</label>
+        <input class="form-control" type="number" min="0" name="amount" value="{{expenses[4]}}" id="amount" required>    
+    </div>
+
+    <!-- PAYMODE -->
+    <div class="form-group">
+        <select class="form-control" name="paymode">
+            <option value="cash" {% if expenses[5]=='cash' %}selected{% endif %}>cash</option>
+            <option value="debitcard" {% if expenses[5]=='debitcard' %}selected{% endif %}>debitcard</option>
+            <option value="creditcard" {% if expenses[5]=='creditcard' %}selected{% endif %}>creditcard</option>
+            <option value="epayment" {% if expenses[5]=='epayment' %}selected{% endif %}>epayment</option>
+            <option value="onlinebanking" {% if expenses[5]=='onlinebanking' %}selected{% endif %}>onlinebanking</option>
+        </select>
+    </div>
+
+    <!-- CATEGORY -->
+    <div class="form-group">
+        <select class="form-control" name="category">
+            <option value="food" {% if expenses[6]=='food' %}selected{% endif %}>food</option>
+            <option value="entertainment" {% if expenses[6]=='entertainment' %}selected{% endif %}>Entertainment</option>
+            <option value="business" {% if expenses[6]=='business' %}selected{% endif %}>Business</option>
+            <option value="rent" {% if expenses[6]=='rent' %}selected{% endif %}>Rent</option>
+            <option value="EMI" {% if expenses[6]=='EMI' %}selected{% endif %}>EMI</option>
+            <option value="other" {% if expenses[6]=='other' %}selected{% endif %}>other</option>
+        </select>
+    </div>
+
+    <input class="btn btn-danger" type="submit" value="Update">
+
+</form>
+        </div>
+    </div>
+    
+</div>
+   
+    {% endblock %}

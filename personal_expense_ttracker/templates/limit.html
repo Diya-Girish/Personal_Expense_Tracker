@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block body %} 
+
+<p> Currently your MONTHLY limit is ₹ {{ limit_amount }} </p>
+
+    
+<form method="POST" action="/limit">
+
+    <input
+        type="number"
+        step="0.01"
+        name="limit"
+        placeholder="Enter Monthly Limit"
+        required
+    >
+
+    <button type="submit">
+        ENTER
+    </button>
+
+</form>
+
+<h4>Current Month Expense : ₹ {{ total_expense }}</h4>
+
+<h4>Remaining Budget : ₹ {{remaining}}</h4>
+
+<h4>Status :
+{% if status == "Limit Exceeded" %}
+<span style="color:red;">{{status}}</span>
+{% else %}
+<span style="color:green;">{{status}}</span>
+{% endif %}
+</h4>
+
+{% endblock %}
